@@ -96,6 +96,8 @@ unsigned int fib(unsigned int n){
         var scol = range.start.column;
         var erow = range.end.row;
         var ecol = range.end.column;
+        
+        
                                                      
         if(writer === false) { 
                             
@@ -114,19 +116,29 @@ unsigned int fib(unsigned int n){
                 } else {
                     c = String.fromCharCode(key); // Normal character
                 }                
-                editor.getSession().insert({row: srow, column: scol}, c); // Insert               
+                //editor.getSession().insert({row: srow, column: scol}, c); // Insert  
+                
+                var currentCursor = editor.selection.getCursor();
+                editor.selection.moveCursorToPosition({row: srow, column: scol});
+                editor.insert(c);
+                editor.selection.moveCursorToPosition({row: currentCursor.row, column: currentCursor.column});
             } 
         }                                            
         writer = false;
-    });
+    });        
     
-    $("#editor").click(function() {        
+    $("#editor").click(function() {                            
         setSelectionRange();            
     });
     
     $(".ace_text-input").keyup(function(evnt){ // Shift selection
         var ev = (evnt) ? evnt : event;
-        var code = (ev.which) ? ev.which : event.keyCode;  
+        var code = (ev.which) ? ev.which : event.keyCode;
+        
+        var elemento = $(".ace_cursor");
+        var posicion = elemento.position();
+        
+        console.log("pos: "+posicion.top);
 
         if(code === 16) // Shift key
             setSelectionRange();           
@@ -159,7 +171,6 @@ unsigned int fib(unsigned int n){
             selectedRange = null;
         }  
     }
-    
     
 </script>
 
