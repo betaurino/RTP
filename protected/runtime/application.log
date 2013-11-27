@@ -1,0 +1,30 @@
+2013/11/26 03:36:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "index_tabs" was not found.' in /Library/WebServer/Documents/yii/framework/web/actions/CViewAction.php:112
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/actions/CViewAction.php(123): CViewAction->resolveView('index_tabs')
+#1 /Library/WebServer/Documents/yii/framework/web/actions/CAction.php(76): CViewAction->run()
+#2 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CAction->runWithParams(Array)
+#3 /Library/WebServer/Documents/yii/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#4 /Library/WebServer/Documents/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): CController->run('page')
+#6 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 /Library/WebServer/Documents/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /Library/WebServer/Documents/RealTimeProject_v1.0/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/RealTimeProject_v1.0/index.php?r=site/page&view=index_tabs
+HTTP_REFERER=http://localhost/RealTimeProject_v1.0/index.php?r=site/index
+---
+2013/11/26 03:36:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "index_tabs" was not found.' in /Library/WebServer/Documents/yii/framework/web/actions/CViewAction.php:112
+Stack trace:
+#0 /Library/WebServer/Documents/yii/framework/web/actions/CViewAction.php(123): CViewAction->resolveView('index_tabs')
+#1 /Library/WebServer/Documents/yii/framework/web/actions/CAction.php(76): CViewAction->run()
+#2 /Library/WebServer/Documents/yii/framework/web/CController.php(308): CAction->runWithParams(Array)
+#3 /Library/WebServer/Documents/yii/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#4 /Library/WebServer/Documents/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(282): CController->run('page')
+#6 /Library/WebServer/Documents/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#7 /Library/WebServer/Documents/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /Library/WebServer/Documents/RealTimeProject_v1.0/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/RealTimeProject_v1.0/index.php?r=site/page&view=index_tabs
+HTTP_REFERER=http://localhost/RealTimeProject_v1.0/index.php?r=site/index
+---
