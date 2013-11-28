@@ -11,6 +11,7 @@ $(document).ready(function() {
     tabCounter = 1;
     addTab();
     tabTitle.val("");
+
  
     // modal dialog init: custom buttons and a "close" callback reseting the form inside
     var dialog = $( "#dialog" ).dialog({
@@ -43,7 +44,7 @@ $(document).ready(function() {
       var label = tabTitle.val() || "Tab " + tabCounter,
           Tabid = "tabs-" + tabCounter,
           li = $( tabTemplate.replace( /#\{href\}/g, "#" + Tabid ).replace( /#\{label\}/g, label ) ),
-          tabContentHtml = '<div id=editor_'+tabCounter+'>add some code here</div>';
+          tabContentHtml = '<div id=editor_'+tabCounter+'>//add some code here</div>';
 
       tabs.find(".ui-tabs-nav").append( li );
       tabs.append( "<div id='" + Tabid + "'>" + tabContentHtml + "</div>" );
@@ -87,47 +88,50 @@ $(document).ready(function() {
       }
     });
 
-    
 
+    // Take Client Name
+    function getClientName()
+    {
+      var x;
+      var person=prompt("Please enter your name","Harry Potter");
+      return person;
+    }
 
-    //Over Name Image
+    var name = getClientName();
+
+    // name label image
+    $( ".ace_scrollbar" ).scroll(function() {
+      changeNamePosition();
+    });
+
     changeNamePosition();
-
     $( ".ace_text-input" ).keyup(function() {
       changeNamePosition();
     });
 
-     $( ".ace_text-input" ).keydown(function() {
+    $( ".ace_text-input" ).keydown(function() {
       changeNamePosition();
     });
     
-    $("#editor_1").click(function() {                            
+    $("#body").mouseup(function(){
       changeNamePosition();          
     });
 
+    $("#body").mousedown(function(){
+      changeNamePosition();
+    });
+
+    $("#body").click(function(){
+      changeNamePosition();          
+    });
+
+    var aceContent = $(".ace_content");
+    aceContent.append("<div class=\"transbox\" id=\"b1\"><p>"+name+"</p></div>");
+
+
     function changeNamePosition(){
-      var elemento = $(".ace_cursor");
-      var posicion = elemento.offset();
-      $("#b1").offset({top:posicion.top-16,left:posicion.left});
+      var cursor = $(".ace_cursor");
+      var absolutePosition = cursor.offset();
+      $("#b1").offset({top:absolutePosition.top-16,left:absolutePosition.left});
      }
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

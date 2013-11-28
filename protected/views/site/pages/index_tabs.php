@@ -22,26 +22,28 @@
 
     div.transbox
     {
-    position: absolute;
-    width:40px;
+    display:inline-block;
+    width:auto;
     height:18px;
-    background-color:#ffffff;
+    background-color:#6633FF;
     border:1px solid black;
     opacity:0.6;
     filter:alpha(opacity=60); /* For IE8 and earlier */
+    z-index: 5;
     }
 
     div.transbox p
     {
+    color: white; 
+    text-shadow: black 0.1em 0.1em 0.2em;
+    padding: 2px;
     margin: 0px;
-    font-weight:bold;
-    color:#000000;
     }
 
   </style>
 </head>
 
-<body>
+<body id="body">
 
 
 
@@ -60,9 +62,6 @@
 <div id="tabs">
   <ul id="tabUL">
   </ul>
-</div>
-<div class="transbox" id="b1">
-  <p>Chuy</p>
 </div>
 </body>
 </html>
