@@ -89,49 +89,65 @@ $(document).ready(function() {
     });
 
 
+//------------------------------- Name Label ----------------------------------------------//
+
+    var name = getClientName();
+    var aceContent = $(".ace_content");
+    aceContent.append("<div class=\"transbox\" id=\"b1\" style=\"display: none;\"  ><p>"+name+"</p></div>");
+    var label = $("#b1");
+    changeNamePosition();
+    var timeoutHandle;
+
+
     // Take Client Name
     function getClientName()
     {
       var x;
-      var person=prompt("Please enter your name","Harry Potter");
+      var person=prompt("Please enter your name","Lord Voldemort");
       return person;
     }
-
-    var name = getClientName();
 
     // name label image
     $( ".ace_scrollbar" ).scroll(function() {
       changeNamePosition();
     });
 
-    changeNamePosition();
     $( ".ace_text-input" ).keyup(function() {
-      changeNamePosition();
+      keyUpNameLabel();
     });
 
     $( ".ace_text-input" ).keydown(function() {
-      changeNamePosition();
+      keyDownNameLabel();
     });
     
     $("#body").mouseup(function(){
-      changeNamePosition();          
+      keyUpNameLabel();
     });
 
     $("#body").mousedown(function(){
+      keyDownNameLabel();
+    });
+
+    function showOrHide(){
+      if(label.is(":visible")){
+        label.slideUp();
+      }
+    }
+
+    function keyUpNameLabel(){
       changeNamePosition();
-    });
+      timeoutHandle = window.setTimeout(function(){ showOrHide(); }, 3000);  
+    }
 
-    $("#body").click(function(){
-      changeNamePosition();          
-    });
-
-    var aceContent = $(".ace_content");
-    aceContent.append("<div class=\"transbox\" id=\"b1\"><p>"+name+"</p></div>");
-
+    function keyDownNameLabel(){
+      changeNamePosition();
+      label.slideDown();
+      window.clearTimeout(timeoutHandle);
+    }
 
     function changeNamePosition(){
       var cursor = $(".ace_cursor");
       var absolutePosition = cursor.offset();
-      $("#b1").offset({top:absolutePosition.top-16,left:absolutePosition.left});
-     }
+      label.offset({top:absolutePosition.top-16,left:absolutePosition.left});
+    }
 });
